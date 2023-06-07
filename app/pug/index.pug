@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+html
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		title Hip-hop artists
+		link(rel="stylesheet", href="css/bootstrap-reboot.min.css")
+		link(rel="stylesheet", href="css/main.css")
+		link(rel="preconnect", href="https://fonts.googleapis.com")
+		link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans:wght@700&display=swap", rel="stylesheet")
+
+	body
+		.central_block
+			include includes/menu
+			+createMenu(1)
+			.main_block 
+				.main_pic
+					img(src='img/2022-11-06_17-35-31.png')
+					h1
+						span HIP-HOP ARTISTS
+			.text
+				p. 
+					В Южной Корее отношение к отечественному хип-хопу неоднозначное — 
+					его представителей часто называют «хип-хоп лузерами», намекая на копирование американских исполнителей и высмеивая за любовь 
+					похвастаться дорогими штучками. Феминистки активно выражают свою ненависть к хип-хоперам за обнаженных женщин в 
+					клипах и не всегда пристойную лирику. Но факт остается фактом — хип-хоп в Корее популярен и отлично продается. К примеру, шоу на выживание 
+					для начинающих рэперов Show Me the Money («Деньги на бочку» в русскоязычном переводе — прим.редакции) уже выпустило девять 
+					сезонов и один специальный сезон 
+					Unpretty Rapstar («Дерзкие рэперши»), 
+					показало высокие рейтинги и было переведено на множество языков, 
+					включая русский. Ежегодно в стране проходят большие хип-хоп 
+					фестивали вроде HipHopPlaya и KB Rapbeat Festival, 
+					спрос на которые настолько высокий, что даже в этом году из-за 
+					коронавируса их не отменили, а провели онлайн. Неудивительно, что хип-хоп индустрия оказывает огромное
+					влияние на корейскую культуру в целом — моду, стиль жизни, развлечения, а иногда и мышление молодежи. 
+					Хорошее это влияние или все же плохое — сложный вопрос, но, чтобы лучше понимать увлечения южнокорейцев, стоит рассказать о представителях этой субкультуры.
+				 
+			p.title LABELS
+			.lables_amount
+				.lable_item
+					img(src='img/H1GHR_MUSIC.jpg')
+				.lable_item
+					img(src='img/AOMG_new_logo.jpg')
+				.lable_item
+					img(src='img/MKIT_Rain.jpg')
+				.lable_item
+					img(src='img/Illionaire_Records_logo.jpg')
+				.lable_item
+					img(src='img/dt.jpg')
+		//- Scripts
+		script(src="js/jquery-3.5.1.min.js")
+		script(src="js/main.js")

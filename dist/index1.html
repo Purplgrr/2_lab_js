@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&amp;family=Open+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
+  </head>
+  <body>
+    <div class="central_block">
+            <div class="menu">
+              <div class="menu1"><a class="menu_item" href="index.html"><img class="logo" src="img/photo_2023-01-17_18-29-00.jpg"/></a></div>
+              <div class="menu2"><a class="menu_item" href="index2.html">Labels</a><a class="menu_item" href="">Charts</a><a class="menu_item" href="index3.html">Albums</a><a class="menu_item" href="">Awards</a><a class="menu_item active" href="index1.html">Discography</a></div>
+            </div>
+      <hr class="line"/>
+      <div class="main_block_pats"> 
+        <p class="title">DISCOGRAPHY</p>
+        <div class="graph">
+          <details>
+            <summary>График</summary>
+            <form>
+              <p>Значение по оси ОХ <br>
+                <input type="radio" name="ox" value="Исполнитель">Исполнитель<br>
+                <input type="radio" name="ox" value="Год релиза">Год релиза<br>
+              </p>
+              <p>Значениe по оси OY <br>
+              <input type="checkbox" name="sales_max">Максимальные продажи<br>
+              <input type="checkbox" name="sales_min">Минимальные продажи<br>
+              </p>
+              <p>
+                <input type=button value="Построить" onclick="drawGraph(this.form)">
+              </p>
+            </form>
+            <svg height="5">
+            </svg>
+          </details>
+        </div>
+        <div class="graph">
+          <details>
+            <summary>Фильтр</summary>
+            <form>
+              <!--<label>Исполнитель: 
+                <input type="text" name="name"/>
+              </label>-->
+              <p>Лэйбл:
+                <select name="agency">
+                  <option value="-">-</option>
+                  <option value="H1ghr Music">H1ghr Music</option>
+                  <option value="AOMG">AOMG</option>
+                  <option value="AREA">AREA</option>
+                  <option value="Genie music">Genie music</option>
+                  <option value="Ambition musik">Ambition musik</option>
+                </select>
+              </p>
+              <label>Год релиза:
+                <input  name = "y_release" type="number"  min="2012" max="2023" value="2012"/>
+              </label>
+              <p>
+                <label>Продажи от :
+                  <input  name = "sales" type="text"  value="0"/>
+                </label>
+              </p>
+              <p><input type="button" value="Фильтрация"  onclick="filterTable(this.form.agency.value, this.form.y_release.value, this.form.sales.value)">
+                <input type="button" value="Отмена"  onclick="showTable('table')"></p>
+            </form>
+          </details>
+        </div>
+        <div class="graph">
+          <details>
+            <summary>Сортировка</summary>
+            <form>
+              <p>Сортировать по:
+                <select name="agency1">
+                  <option value="0">Исполнитель</option>
+                  <option value="1">Лэйбл</option>
+                  <option value="2">Название песни</option>
+                  <option value="3">Год релиза</option>
+                  <option value="4">Позиция в чартах</option>
+                  <option value="5">Продажи</option>
+                </select>
+              </p>
+              
+              <p>Затем по:
+                <select name="agency2">
+                  <option value="0">Исполнитель</option>
+                  <option value="1">Лэйбл</option>
+                  <option value="2">Название песни</option>
+                  <option value="3">Год релиза</option>
+                  <option value="4">Позиция в чартах</option>
+                  <option value="5">Продажи</option>
+                </select>
+              </p>
+              <input type="button" value="Сортировка">
+              </form>
+          </details>
+        </div>
+        <table id="table">
+          <tr>
+            <td>Исполнитель</td>
+            <td>Лэйбл</td>
+            <td>Название песни</td>
+            <td>Год релиза</td>
+            <td>Позиция в чартах</td>
+            <td>Продажи</td>
+          </tr>
+          <tr>
+            <td>pH-1</td>
+            <td>H1ghr Music</td>
+            <td>HALO</td>
+            <td>2019</td>
+            <td>21</td>
+            <td>3782</td>
+          </tr>
+          <tr>
+            <td>pH-1</td>
+            <td>H1ghr Music</td>
+            <td>X</td>
+            <td>2020</td>
+            <td>27</td>
+            <td>4579</td>
+          </tr>
+          <tr>
+            <td>KidMilli</td>
+            <td>H1ghr Music</td>
+            <td>The Island Kid</td>
+            <td>2017</td>
+            <td>45</td>
+            <td>39982</td>
+          </tr>
+          <tr>
+            <td>pH-1</td>
+            <td>H1ghr Music</td>
+            <td>"Orange" (주황색)</td>
+            <td>2019</td>
+            <td>56</td>
+            <td>67782</td>
+          </tr>
+          <tr>
+            <td>CozyBoy</td>
+            <td>H1ghr Music</td>
+            <td>"Malibu" (feat. The Quiett)</td>
+            <td>2019</td>
+            <td>11</td>
+            <td>5782</td>
+          </tr>
+          <tr>
+            <td>pmost</td>
+            <td>AREA</td>
+            <td>Happy</td>
+            <td>2016</td>
+            <td>7</td>
+            <td>55075</td>
+          </tr>
+          <tr>
+            <td>GroovyRoom</td>
+            <td>H1ghr Music</td>
+            <td>Somewhere</td>
+            <td>2019</td>
+            <td>52</td>
+            <td>78900</td>
+          </tr>
+          <tr>
+            <td>GroovyRoom</td>
+            <td>H1ghr Music</td>
+            <td>By Your Color</td>
+            <td>2020</td>
+            <td>15</td>
+            <td>4579</td>
+          </tr>
+          <tr>
+            <td>GroovyRoom</td>
+            <td>H1ghr Music</td>
+            <td>By Colour</td>
+            <td>2020</td>
+            <td>15</td>
+            <td>45799</td>
+          </tr>
+          <tr>
+            <td>GroovyRoom</td>
+            <td>H1ghr Music</td>
+            <td>"Карабин" (잡아줄게)</td>
+            <td>2017</td>
+            <td>82</td>
+            <td>780</td>
+          </tr>
+          <tr>
+            <td>GroovyRoom</td>
+            <td>H1ghr Music</td>
+            <td>Tell me</td>
+            <td>2019</td>
+            <td>9</td>
+            <td>5900</td>
+          </tr>
+          <tr>
+            <td>GroovyRoom</td>
+            <td>H1ghr Music</td>
+            <td>Achoo Remix</td>
+            <td>2019</td>
+            <td>13</td>
+            <td>5782</td>
+          </tr>
+          <tr>
+            <td>Jay Park</td>
+            <td>AOMG</td>
+            <td>Candy</td>
+            <td>2023</td>
+            <td>15</td>
+            <td>134900</td>
+          </tr>
+          <tr>
+            <td>Jay Park</td>
+            <td>AOMG</td>
+            <td>Mommae</td>
+            <td>2015</td>
+            <td>1</td>
+            <td>134900</td>
+          </tr>
+          <tr>
+            <td>Jay Park</td>
+            <td>AOMG</td>
+            <td>sweetcandy!</td>
+            <td>2015</td>
+            <td>1</td>
+            <td>154907</td>
+          </tr>
+          <tr>
+            <td>Jay</td>
+            <td>AOMG</td>
+            <td>Happy</td>
+            <td>2017</td>
+            <td>7</td>
+            <td>550555</td>
+          </tr>
+          <tr>
+            <td>LILboy</td>
+            <td>AREA</td>
+            <td>Happy</td>
+            <td>2023</td>
+            <td>7</td>
+            <td>551555</td>
+          </tr>
+          <tr>
+            <td>bibii</td>
+            <td>AREA</td>
+            <td>HOMIE</td>
+            <td>2022</td>
+            <td>7</td>
+            <td>557555</td>
+          </tr>
+          <tr>
+            <td>aaaaa</td>
+            <td>AREA</td>
+            <td>Heyyo</td>
+            <td>2022</td>
+            <td>7</td>
+            <td>7555</td>
+          </tr>
+          <tr>
+            <td>kitty</td>
+            <td>AREA</td>
+            <td>banana cat</td>
+            <td>2018</td>
+            <td>71</td>
+            <td>12345</td>
+          </tr>
+          <tr>
+            <td>apple cat</td>
+            <td>AREA</td>
+            <td>diss banana cat</td>
+            <td>2018</td>
+            <td>71</td>
+            <td>52345</td>
+          </tr>
+          <tr>
+            <td>LILboy</td>
+            <td>AREA</td>
+            <td>Haphappinesspy</td>
+            <td>2016</td>
+            <td>17</td>
+            <td>78959</td>
+          </tr>
+          <tr>
+            <td>pmost</td>
+            <td>AREA</td>
+            <td>Happy</td>
+            <td>2016</td>
+            <td>7</td>
+            <td>55075</td>
+          </tr>
+          <tr>
+            <td>The1975</td>
+            <td>Genie music</td>
+            <td>LY</td>
+            <td>2019</td>
+            <td>19</td>
+            <td>59785</td>
+          </tr>
+          <tr>
+            <td>multiki</td>
+            <td>Genie music</td>
+            <td>letsgetit</td>
+            <td>2016</td>
+            <td>9</td>
+            <td>7766</td>
+          </tr>
+          <tr>
+            <td>Guy-T</td>
+            <td>Ambition musik</td>
+            <td>malatang</td>
+            <td>2016</td>
+            <td>95</td>
+            <td>7857</td>
+          </tr>
+          <tr>
+            <td>TheRose</td>
+            <td>Ambition musik</td>
+            <td>choco</td>
+            <td>2016</td>
+            <td>55</td>
+            <td>23143</td>
+          </tr>
+          <tr>
+            <td>Guy-T</td>
+            <td>Ambition musik</td>
+            <td>flowers</td>
+            <td>2019</td>
+            <td>14</td>
+            <td>124135</td>
+          </tr>
+          <tr>
+            <td>Guy-T</td>
+            <td>Ambition musik</td>
+            <td>letsgetit</td>
+            <td>2020</td>
+            <td>3</td>
+            <td>7987</td>
+          </tr>
+          <tr>
+            <td>TheRose</td>
+            <td>Ambition musik</td>
+            <td>gogo</td>
+            <td>2020</td>
+            <td>8</td>
+            <td>978798</td>
+          </tr> 
+        </table>
+      </div>
+    </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

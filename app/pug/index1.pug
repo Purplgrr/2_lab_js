@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+html
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		title
+		link(rel="stylesheet", href="css/bootstrap-reboot.min.css")
+		link(rel="stylesheet", href="css/main.css")
+		link(rel="preconnect", href="https://fonts.googleapis.com")
+		link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans:wght@700&display=swap", rel="stylesheet")
+
+	body
+		.central_block
+			include includes/menu
+			+createMenu("3")
+			hr.line
+			.main_block_pats 
+				p.title DISCOGRAPHY
+
+				.graph
+					details
+						summary График
+						form
+							p Значение по оси ОХ <br>
+								input(type="checkbox", name="category", value="0") 
+								| &nbsp Лэйбл <br>
+								input(type="checkbox", name="category", value="1") 
+								| &nbsp Год релиза <br>
+								input(type="checkbox", name="category", value="2") 
+								| &nbsp Продажи <br>
+						form
+							p Результат <br>
+								input(type="checkbox", name="category", value="0") 
+								| &nbsp Среднее количество продаж <br>
+								input(type="checkbox", name="category", value="1") 
+								| &nbsp Количество лэйблов<br>
+
+				.graph
+					details
+						summary Фильтр
+						form
+							label Исполнитель: 
+								input(type="text", name="name")
+							p Лэйбл:
+								select(name="brade")
+									option(value="0") H1ghr Music
+									option(value="1") AOMG
+									option(value="2") AREA
+									option(value="3") Genie music
+									option(value="4") Ambition musik
+							label Год релиза:
+								input(type="number", min="2012", max="2022", value="2012")
+							p
+								label Продажи от :
+									input(type="text", value="0")
+
+				.graph
+					details
+						summary Сортировка
+						form
+							p Сортировать по:
+								select(name="brade")
+									option(value="0") Исполнитель
+									option(value="1") Лэйбл
+									option(value="2") Название песни
+									option(value="3") Год релиза
+									option(value="4") Позиция в чартах
+									option(value="5") Продажи
+
+				table
+					tr
+						td Исполнитель
+						td Лэйбл
+						td Название песни
+						td Год релиза
+						td Позиция в чартах
+						td Продажи
+
+					tr
+						td pH-1
+						td H1ghr Music
+						td HALO
+						td 2019
+						td 21
+						td 3,782
+
+					tr
+						td pH-1
+						td H1ghr Music
+						td X
+						td 2020
+						td 27
+						td 4,579
+
+					tr
+						td pH-1
+						td H1ghr Music
+						td The Island Kid
+						td 2017
+						td 45
+						td 3,9982
+
+					tr
+						td pH-1
+						td H1ghr Music
+						td "Orange" (주황색)
+						td 2019
+						td 56
+						td 67,782
+					tr
+						td pH-1
+						td H1ghr Music
+						td "Malibu" (feat. The Quiett)
+						td 2019
+						td 11
+						td 5,782
+					tr
+						td GroovyRoom
+						td H1ghr Music
+						td Somewhere
+						td 2019
+						td 52
+						td 78,900
+
+					tr
+						td GroovyRoom
+						td H1ghr Music
+						td By Your Color
+						td 2020
+						td 15
+						td 4,579
+
+					tr
+						td GroovyRoom
+						td H1ghr Music
+						td "Карабин" (잡아줄게)
+						td 2017
+						td 82
+						td 780
+
+					tr
+						td GroovyRoom
+						td H1ghr Music
+						td Tell me
+						td 2019
+						td 9
+						td 	5,900
+					tr
+						td GroovyRoom
+						td H1ghr Music
+						td Achoo Remix
+						td 2019
+						td 13
+						td 5,782
+					tr
+						td Jay Park
+						td AOMG
+						td Mommae
+						td 2015
+						td 1
+						td 134,900
+
+			
+		//- Scripts
+		script(src="js/jquery-3.5.1.min.js")
+		script(src="js/main.js")
